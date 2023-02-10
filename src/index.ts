@@ -1,34 +1,11 @@
 import express from "express";
-import https from "https";
-
-const baseURL = "https://mockend.com/juunegreiros/BE-test-api"
-
-
-// colocar em outro arquivo \/
-const getData = (path) => {
-  https.get(`${baseURL}/${path}`, (response) => {
-    var data = '';
-  
-    response.on('data', (chunk) => {
-      data += chunk
-    })
-  
-    response.on('end', () => {
-      JSON.parse(data)   
-    })
-  }).on("error", (err) => {
-    console.log("Error: " + err.message)
-  })
-}
+import getData from "./service/getData";
 
 const app = express()
 app.use(express.json())
 
-app.get('/users', (req, res) => {
-  
-  const usersData = getData("users")
-  return res.send(usersData)
-  
+app.get('/users', (req, res) => {  
+ getData("users")
 })
 
 app.get('/products', (req, res) => {
