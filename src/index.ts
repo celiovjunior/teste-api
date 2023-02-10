@@ -2,15 +2,19 @@ import express from "express";
 import { getData } from "./service/getData";
 
 const app = express();
-const router = express.Router();
 
-app.get('/products', (req, res) => {
-  getData("products")
+app.get('/products', async (req, res) => {
+  req.body = await getData('products')
+  const productsJsonData = req.body
+  return res.json(productsJsonData)
 })
 
-// app.get('/products', (req, res) => {
-//   return res.send({ "message": "hello products endpoint" })
-// })
+app.get('/clients', async (req, res) => {
+  req.body = await getData('users')
+  const usersJsonData = req.body
+  return res.json(usersJsonData)
+  
+})
 
 app.listen(3333, () => {
   console.log('🐎 Server is running!')
