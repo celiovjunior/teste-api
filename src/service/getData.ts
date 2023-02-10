@@ -1,19 +1,10 @@
-import https from "https";
+import axios from "axios"
 
-const getData = (path: string) => {
-  https.get(`https://mockend.com/juunegreiros/BE-test-api/${path}`, (response) => {
-    var data = '';
-
-    response.on('data', (chunk) => {
-      data += chunk
-    })
-  
-    response.on('end', () => {
-      console.log(JSON.parse(data))   
-    })
-  }).on("error", (err) => {
-    console.log("Error: " + err.message)
-  })
+export const getData = async (path: string) => {
+  try {
+    const fetchedData = await axios.get(`https://mockend.com/juunegreiros/BE-test-api/${path}`)
+    console.log(fetchedData.data)
+  } catch (error) {
+    console.error(error)
+  }
 }
-
-export default getData;

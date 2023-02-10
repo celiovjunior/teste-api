@@ -1,12 +1,8 @@
 import express from "express";
-import getData from "./service/getData";
+import { getData } from "./service/getData";
 
-const app = express()
-app.use(express.json())
-
-app.get('/users', (req, res) => {  
- getData("users")
-})
+const app = express();
+const router = express.Router();
 
 app.get('/products', (req, res) => {
   getData("products")
