@@ -1,4 +1,6 @@
 import express from "express";
+import Product from "./models/Product";
+import User from "./models/User";
 import { getData } from "./service/getData";
 
 const app = express();
@@ -6,14 +8,34 @@ const app = express();
 app.get('/products', async (req, res) => {
   req.body = await getData('products')
   const productsJsonData = req.body
-  return res.json(productsJsonData)
+
+  const productsList = productsJsonData.map((item: Product) => {
+    const product = {
+      id: item.id,
+      name: item.name,
+      price: item.price
+    }
+
+    return product
+  })
+
+  return res.json(productsList)
 })
 
-app.get('/clients', async (req, res) => {
+app.get('/users', async (req, res) => {
   req.body = await getData('users')
   const usersJsonData = req.body
-  return res.json(usersJsonData)
   
+  const usersList = usersJsonData.map((item: User) => {
+    const user = {
+      id: item.id,
+      name: item.name,
+      tax: item.tax
+    }
+    return user
+  })
+
+  return res.json(usersList)
 })
 
 app.listen(3333, () => {
