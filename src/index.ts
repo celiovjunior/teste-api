@@ -23,11 +23,16 @@ app.get('/budget/:userId/:productIds', async (req, res) => {
   // console.log(data.budget.productIds)
 
   const filteredProducts = productsList.filter(product => input.productIds.includes(product.id))
-  console.log(filteredProducts)
+  // console.log(filteredProducts)
 
   const usersList = await getData('users')
   const user = usersList.filter(user => input.userId === user.id)
-  console.log(user)
+  const userTax = user[0].tax
+
+  const productsPriceSum = filteredProducts.reduce((acc, product) => acc + product.price, 0)
+  
+  const budget = productsPriceSum * (userTax / 100)
+  console.log(budget)
 
   return res.json(input)
 })
@@ -37,6 +42,6 @@ app.listen(3333, () => {
 })
 
 // exemplo
-// app.use("/users", middleware, userController.list)
-// app.use("/products", middleware, productController.list)
+// app.use("/users", userController.list)
+// app.use("/products", productController.list)
 // app.use("/budget/:userId/:productsIds", middleware, userController.budget)

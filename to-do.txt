@@ -1,0 +1,4 @@
+[] Terminar o algoritmo de calculo do buget;
+[] Organizar o projeto na estrutura de pastas adequada;
+[] Fazer testes unitários;
+[] Escrever o README;
