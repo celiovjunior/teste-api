@@ -1,41 +1,35 @@
 import express from "express";
-import Product from "./models/Product";
-import User from "./models/User";
 import { getData } from "./service/getData";
 
 const app = express();
 
-app.get('/products', async (req, res) => {
-  req.body = await getData('products')
-  const productsJsonData = req.body
-
-  const productsList = productsJsonData.map((item: Product) => {
-    const product = {
-      id: item.id,
-      name: item.name,
-      price: item.price
-    }
-
-    return product
-  })
-
-  return res.json(productsList)
+app.get('/users', async (req, res) => {
+  const productsJsonData = await getData('products')
+  return res.json(productsJsonData)
 })
 
 app.get('/users', async (req, res) => {
-  req.body = await getData('users')
-  const usersJsonData = req.body
-  
-  const usersList = usersJsonData.map((item: User) => {
-    const user = {
-      id: item.id,
-      name: item.name,
-      tax: item.tax
-    }
-    return user
-  })
+  const usersJsonData = await getData('users')
+  return res.json(usersJsonData)
+})
 
-  return res.json(usersList)
+app.get('/budget/:userId/:productIds', async (req, res) => {
+  const input = {    
+    "userId": Number(req.params.userId),
+    "productIds": req.params.productIds.split(',').map(id => Number(id))
+  }
+
+  const productsList = await getData('products')
+  // console.log(data.budget.productIds)
+
+  const filteredProducts = productsList.filter(product => input.productIds.includes(product.id))
+  console.log(filteredProducts)
+
+  const usersList = await getData('users')
+  const user = usersList.filter(user => input.userId === user.id)
+  console.log(user)
+
+  return res.json(input)
 })
 
 app.listen(3333, () => {
