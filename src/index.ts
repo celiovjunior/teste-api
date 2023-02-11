@@ -3,7 +3,7 @@ import { getData } from "./service/getData";
 
 const app = express();
 
-app.get('/users', async (req, res) => {
+app.get('/products', async (req, res) => {
   const productsJsonData = await getData('products')
   return res.json(productsJsonData)
 })
@@ -35,3 +35,8 @@ app.get('/budget/:userId/:productIds', async (req, res) => {
 app.listen(3333, () => {
   console.log('🐎 Server is running!')
 })
+
+// exemplo
+// app.use("/users", middleware, userController.list)
+// app.use("/products", middleware, productController.list)
+// app.use("/budget/:userId/:productsIds", middleware, userController.budget)
