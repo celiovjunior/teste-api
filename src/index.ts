@@ -13,3 +13,5 @@ app.use("/budget/:userId/:productIds", budgetMiddleware)
 app.listen(3333, () => {
   console.log('🐎 Server is running!')
 })
+
+export default app;

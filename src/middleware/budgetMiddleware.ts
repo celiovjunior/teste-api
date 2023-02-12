@@ -19,7 +19,7 @@ const budgetMiddleware = async (req, res, next) => {
     
     const budget = productsPriceSum * (userTax / 100)
        
-    res.json({ "budget":budget })
+    res.json({ "budget": budget })
     return next();
     
   } catch(err) {
