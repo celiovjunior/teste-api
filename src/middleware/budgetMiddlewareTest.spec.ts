@@ -17,15 +17,13 @@ describe('Test Middlewares', () => {
   })
 
   it('should calculate budget', async () => {
-    const userId = 1
-    const productsIds = [1, 2, 3]
+    const userId = 5
+    const productsIds = [4, 12, 18, 21]
 
     const res = await request(app).get(`/budget/${userId}/${productsIds}`)
     
-    // console.log(res.body)
-
     expect(res.statusCode).toEqual(200)
     expect(res.body).toHaveProperty('budget')
-    expect(res.body["budget"]).toEqual(11348.35)
+    expect(res.body["budget"]).toEqual(7032.47)
   })
 })
