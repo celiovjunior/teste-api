@@ -2,8 +2,8 @@
 
 > Status: finalizado ✔
 
-## Sobre: 
-Utilizando os dados disponíveis em dois mockends (um com uma lista de usuários e outro com lista de produtos), foi desenvolvido uma API onde é possível: <br>
+## Descrição: 
+Utilizando os dados disponíveis em dois mockends (um com uma lista de usuários e outro com uma lista de produtos), foi desenvolvido uma API onde é possível: <br>
 - listar os dados dos usuários ("users");
 - listar os dados dos produtos ("products");
 - calcular o orçamento ("budget") que cada usuário irá pagar em cima do(s) preço(s) do(s) produtos(s) selecionado(s);
@@ -16,7 +16,7 @@ Utilizando os dados disponíveis em dois mockends (um com uma lista de usuários
 - [Jest](https://jestjs.io/docs/getting-started)
 
 ## Como Baixar o Projeto:
-Antes de baixar o projeto, certifique-se de que você tenha o Node, o npm (gerenciamento de pacotes do Node) e o Git instalandos e devidamente configurados no seu computador.<br>
+Antes de baixar o projeto, certifique-se de que você tenha o Node, o npm (gerenciador de pacotes do Node) e o Git instalandos e devidamente configurados no seu computador.<br>
 Abaixo estão alguns links de apoio:
 
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
@@ -102,9 +102,9 @@ Abaixo, alguns links de apoio:
 - [Postman](https://www.postman.com/downloads/)
 - [Insomnia](https://insomnia.rest/download)
 
-<p>Na tabela seguir, estão algumas orientações de quais rotas são possíveis testas, o tipo de requisição e qual a ação esperada:</p>
+<p>Na tabela seguir, estão algumas orientações de quais rotas são possíveis testar, o tipo de requisição e qual a ação esperada:</p>
 
-<p>A URL base parão é: <code>http://localhost:3333</code></p>
+<p>A URL base padrão é: <code>http://localhost:3333</code></p>
 
 <table>
     <tr>
@@ -149,11 +149,11 @@ src
        budgetMiddlewareTest.spec.ts
 ```
 
-Para rodar os testes, basta rodar o comando abaixo no terminal com o diretório da pasta raiz do projeto:<br>
+Para rodar os testes, basta rodar o comando abaixo no terminal, dentro do da pasta raiz do projeto:<br>
 ```node
 npm run test
 ```
 ---
 
 ## Final
-<p>Em caso de algum dúvidas, erros ou mal funcionamento do código, você pode entrar em contato comigo através do e-mail:<br> 📩 cl.juniorr@gmail.com
+<p>Em caso de dúvidas, erros ou mal funcionamento do código, você pode entrar em contato comigo através do e-mail:<br> 📩 cl.juniorr@gmail.com
