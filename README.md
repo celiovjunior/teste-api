@@ -141,13 +141,8 @@ Abaixo, alguns links de apoio:
 
 <p>Neste projeto, o Jest foi utilizado para testar se os middlewares se comportam da forma esperada, tendo em vista o status da resposta da requisição (<code>statusCode</code>), o tamanho da lista retornada (<code>length</code>) e o calculo do orçamento (<code>budget</code>) de acordo com os parâmetros passados na rota .</p>
 
-O arquivo de teste está no seguinte diretório:<br>
+O arquivo de teste se encontra dentro da pasta <code>middleware</code>:<br>
 
-```
-src
-└─── middleware
-       budgetMiddlewareTest.spec.ts
-```
 
 Para rodar os testes, basta rodar o comando abaixo no terminal, dentro do da pasta raiz do projeto:<br>
 ```node
